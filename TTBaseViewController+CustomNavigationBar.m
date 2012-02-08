@@ -8,7 +8,7 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    [self setNavigationBarBackgroundImage:@"application_bar.png"
+    [self setNavigationBarBackgroundImage:@"nav-bar.png"
                                 tintColor:[UIColor colorWithRed:0.059f green:0.545f blue:0.753f alpha:1.0f]];
 }
 
