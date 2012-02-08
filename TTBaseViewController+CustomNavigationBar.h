@@ -1,0 +1,3 @@
+@interface TTBaseViewController (CustomNavigationBar)
+
+@end
