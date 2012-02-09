@@ -10,6 +10,14 @@
 
     [self setNavigationBarBackgroundImage:@"nav-bar.png"
                                 tintColor:[UIColor colorWithRed:0.059f green:0.545f blue:0.753f alpha:1.0f]];
+    
+    /* Add dropshadow to bar */    
+    if ([self.navigationController.navigationBar viewWithTag:kCustomNavigationBarShadowBackgroundImageTag] == nil) {    
+        UIImageView *dropShadow = [[[UIImageView alloc] initWithFrame:CGRectMake(0,44,320,10)] autorelease];
+        dropShadow.image = [UIImage imageNamed:@"nav_bar_shadow.png"];
+        dropShadow.tag = kCustomNavigationBarShadowBackgroundImageTag;
+        [self.navigationController.navigationBar insertSubview:dropShadow atIndex:1];
+    }
 }
 
 @end
