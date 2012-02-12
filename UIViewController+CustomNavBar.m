@@ -20,6 +20,16 @@
             [imageView release];
         }
     }
+    
+    UILabel *newLabel = [[[UILabel alloc] init] autorelease];
+    newLabel.text = [self.title uppercaseString];
+    newLabel.font = [UIFont fontWithName:@"QuicksandBold-Regular" size:22.0f];
+    newLabel.textColor = [UIColor whiteColor];
+    newLabel.backgroundColor = [UIColor clearColor];
+    newLabel.shadowColor = [UIColor darkGrayColor];
+    newLabel.shadowOffset = CGSizeMake(0, -1.f);
+    [newLabel sizeToFit];
+    self.navigationItem.titleView = newLabel;
 }
 
 @end
