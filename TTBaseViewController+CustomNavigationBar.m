@@ -8,8 +8,10 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    [self setNavigationBarBackgroundImage:@"nav-bar.png"
-                                tintColor:[UIColor colorWithRed:0.059f green:0.545f blue:0.753f alpha:1.0f]];
+    if (![[self class] isSubclassOfClass:[TTPopupViewController class]]) {
+        [self setNavigationBarBackgroundImage:@"nav-bar.png"
+                                tintColor:[UIColor colorWithRed:0.059f green:0.545f blue:0.753f alpha:0.2f]];
+    }
     
     /* Add dropshadow to bar */    
     if ([self.navigationController.navigationBar viewWithTag:kCustomNavigationBarShadowBackgroundImageTag] == nil) {    
