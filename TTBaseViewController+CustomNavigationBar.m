@@ -10,7 +10,7 @@
 
     if (![[self class] isSubclassOfClass:[TTPopupViewController class]]) {
         [self setNavigationBarBackgroundImage:@"nav-bar.png"
-                                tintColor:[UIColor colorWithRed:0.059f green:0.545f blue:0.753f alpha:0.2f]];
+                                    tintColor:[UIColor colorWithRed:0.059f green:0.545f blue:0.753f alpha:0.2f]];
     }
     
     /* Add dropshadow to bar */    
@@ -19,6 +19,24 @@
         dropShadow.image = [UIImage imageNamed:@"nav_bar_shadow.png"];
         dropShadow.tag = kCustomNavigationBarShadowBackgroundImageTag;
         [self.navigationController.navigationBar insertSubview:dropShadow atIndex:1];
+    }
+}
+
+- (void)scSetTitle:(NSString*)title {
+    BOOL new = ![self.title isEqualToString:title];
+    
+    [super setTitle:title];
+    
+    if (new || ![self.navigationItem.titleView isKindOfClass:[UILabel class]]) {
+        UILabel *newLabel = [[[UILabel alloc] init] autorelease];
+        newLabel.text = [self.title uppercaseString];
+        newLabel.font = [UIFont fontWithName:@"QuicksandBold-Regular" size:22.0f];
+        newLabel.textColor = [UIColor whiteColor];
+        newLabel.backgroundColor = [UIColor clearColor];
+        newLabel.shadowColor = [UIColor darkGrayColor];
+        newLabel.shadowOffset = CGSizeMake(0, -1.f);
+        [newLabel sizeToFit];
+        self.navigationItem.titleView = newLabel;
     }
 }
 
